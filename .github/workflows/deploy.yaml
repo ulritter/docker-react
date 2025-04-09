@@ -16,7 +16,7 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
       - name: Deploy to EB
-        uses: cooltide/cooltide/docker-react
+        uses: cooltide/docker-react@master
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
