@@ -16,7 +16,7 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
       - name: Deploy to EB
-        uses: cooltide/docker-react@master
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
@@ -26,3 +26,4 @@ jobs:
           existing_bucket_name: elasticbeanstalk-eu-north-1-054037130643
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
+          bucket_path: frontend
